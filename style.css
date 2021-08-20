@@ -32,6 +32,7 @@ nav {
     margin: 0;
     background-color: var(--primary);
     transition: height 0.4s ease-in;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
 
 a {text-decoration: none;}
@@ -279,7 +280,6 @@ section {
     left: 50%;
     top: 115%;
     margin-left: -100px;
-    top: 
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
@@ -310,6 +310,7 @@ section {
         z-index:12;
         background-color: var(--primary);
         height: 80px;
+        box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
     }
     /* MOBILE NAVIGATION */
     .navMobile {
@@ -321,6 +322,7 @@ section {
         padding: 0 20px;
         margin: 0;
         z-index: 10;
+        
     }
     /* CONTAINER FOR LOGO - MOBILE */
     .navLogo {
@@ -363,9 +365,9 @@ section {
         padding: 10px 20px;
         width: 100%;
         background-color: var(--secondary);
-        transform: translateY(-300px);
-        transition: transform 0.5s ease-in;
-        z-index: -1;
+        transform: translateX(-300%);
+        transition: transform 0.7s ease-in-out;
+        z-index: 1;
     }
     .navMobileItem {
         margin: 10px 0;
@@ -373,7 +375,7 @@ section {
 
     /* DISPLAYED MENU - AFTER TRANSITION */
     .displayNav {
-        transform: translateY(0);
+        transform: translateX(0);
         z-index: -1;
     }
     /* SINGLE ITEM IN MOBILE NAV */
