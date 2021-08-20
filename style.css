@@ -13,12 +13,13 @@
 body {
     font-family: "Space Grotesk", sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
     min-height: 100vh;
 }
+
 
 nav {
     display: flex;
@@ -30,6 +31,7 @@ nav {
     height: 80px;
     margin: 0;
     background-color: var(--primary);
+    transition: height 0.4s ease-in;
 }
 
 a {text-decoration: none;}
@@ -42,6 +44,11 @@ li {list-style-type: none;}
     max-width: 1200px;
     width: 100%;
     margin: 0 20px;
+}
+
+/* ANIMATION WHEN USER SCROLLS DOWN */
+nav.scrollDown {
+    height: 60px;
 }
 /* CONTAINER FOR ICON & TITLE */
 .navLogo {
@@ -124,6 +131,173 @@ li {list-style-type: none;}
     transform: scale(0.95);
 }
 
+
+/* INTRO SECTION - GENERAL INFO ABOUT THE BOOK */
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 80px 0;
+    z-index: 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+
+}
+
+/* LEFT SIDE OF INTRO WITH TEXT */
+.content-container {
+    height: 500px;
+    padding: 20px 40px;
+    position: relative;
+}
+.content-container .content, .header {
+    text-align: center;
+}
+
+.content-container .header::before {
+    content: '\f6d5';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: bold;
+    position: absolute;
+    z-index: -2;
+    left: 10%;
+    top: 15%;
+    font-size: 150px;
+    opacity: 0.2;
+    color: var(--primary);
+}
+
+.content-container .header::after {
+    content: '\f717';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: bold;
+    position: absolute;
+    z-index: -2;
+    left: 50%;
+    top: 35%;
+    font-size: 150px;
+    opacity: 0.2;
+    color: var(--secondary);
+}
+
+.content-container .header h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+    background-color: var(--secondary);
+    border-radius: 10px;
+    opacity: 0.9;
+    display: inline-block;
+    padding: 10px;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+}
+.content-container .header h2 {
+    color: var(--optional);
+    margin: 0;
+    letter-spacing: 3px;
+}
+.content-container .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 10px;
+}
+.content-container .content .text {
+    color: lightslategray;
+}
+
+.content-container .content button {
+    background-color: var(--primary);
+    border: 0;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+    margin: 50px 0;
+    cursor: pointer;
+}
+.content-container .content button a {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.content-container .content button:hover {
+    opacity: 0.8;
+}
+.content-container .content button:hover a {
+    font-weight: bold;
+}
+.content-container .content button:active {
+    transform: scale(0.97);
+}
+
+.content-container .content a {
+    color: black; 
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+.content-container .content a:hover {
+    font-weight: bold;
+}
+/* RIGHT SIDE OF INTRO WITH A PICTURE */
+.bookCover {
+    width: 300px;
+}
+.bookCover img {
+    width: 300px;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
+}
+
+/* TOOLTIPS */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted var(--primary);
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--secondary);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 115%;
+    margin-left: -100px;
+    top: 
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent var(--secondary) transparent;
+  }
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 @media (max-width: 1150px) {
     /* SWITCH OFF TRADITIONAL NAV */
     .navBox {
@@ -133,6 +307,9 @@ li {list-style-type: none;}
     nav {
         position: absolute;
         margin: 0;
+        z-index:12;
+        background-color: var(--primary);
+        height: 80px;
     }
     /* MOBILE NAVIGATION */
     .navMobile {
@@ -143,6 +320,7 @@ li {list-style-type: none;}
         width: 100%; 
         padding: 0 20px;
         margin: 0;
+        z-index: 10;
     }
     /* CONTAINER FOR LOGO - MOBILE */
     .navLogo {
@@ -194,8 +372,9 @@ li {list-style-type: none;}
     }
 
     /* DISPLAYED MENU - AFTER TRANSITION */
-    .scrollDown {
+    .displayNav {
         transform: translateY(0);
+        z-index: -1;
     }
     /* SINGLE ITEM IN MOBILE NAV */
     .navMobileItem a {
@@ -214,6 +393,19 @@ li {list-style-type: none;}
     .navMobileItem a:hover {
         color: var(--secondary);
         background-color: white;
+    }
+
+    /* INTRO FOR MOBILE */
+    .flex-container {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .content-container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 }
 @media (min-width: 1150px) {
