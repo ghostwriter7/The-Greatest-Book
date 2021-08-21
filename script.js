@@ -62,3 +62,40 @@ function disableScroll() {
 function enableScroll() {
     document.body.classList.remove('disableScroll');
 }
+
+// DYNAMIC BACKGROUND IN INTRO
+
+const repetitions = 100;
+const introSection = document.getElementById('intro');
+
+
+const interval = setInterval(() => {
+    addNewIcon();
+}, 10)
+
+setTimeout(() => {
+    clearInterval(interval);
+}, 10 * repetitions);
+
+function addNewIcon() {
+    const newIcon = document.createElement('span');
+    const iconType = randomValue();
+    if (iconType < 50) {
+        newIcon.innerHTML = '<i class="fas fa-dragon"></i>'
+        newIcon.style.color = 'var(--primary)';
+    } else {
+        newIcon.innerHTML = '<i class="fas fa-spider"></i>'
+        newIcon.style.color = 'var(--secondary)';
+    }
+    newIcon.style.position = 'absolute';
+    newIcon.style.fontSize = `${randomValue()}px`;
+    newIcon.style.opacity = `${randomValue() / 100}`;
+    newIcon.style.top = `${randomValue()}%`;
+    newIcon.style.left = `${randomValue()}%`;
+    newIcon.style.zIndex = '-100';
+    introSection.appendChild(newIcon);
+}
+
+function randomValue() {
+    return randomNum = Math.ceil((Math.random() * 100));
+}

@@ -161,7 +161,8 @@ section#intro {
     justify-content: center;
     align-items: center;
     margin: 80px 0;
-    z-index: 0;
+    z-index: 1;
+    position: relative;
 }
 
 .flex-container {
@@ -179,7 +180,7 @@ section#intro {
     position: relative;
 }
 .content-container .content, .header {
-    text-align: center;
+    text-align: right;
 }
 
 .content-container .header::before {
@@ -219,11 +220,7 @@ section#intro {
     padding: 10px;
     box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
-.content-container .header h2 {
-    color: var(--optional);
-    margin: 0;
-    letter-spacing: 3px;
-}
+
 .content-container .content {
     display: flex;
     flex-direction: column;
@@ -232,7 +229,13 @@ section#intro {
     margin: 50px 10px;
 }
 .content-container .content .text {
-    color: lightslategray;
+    color: white;
+    background-color: rgba(0,0,0,0.6);
+    text-align: left;
+    line-height: 2rem;
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding: 5px;
 }
 
 .content-container .content button {
@@ -248,6 +251,7 @@ section#intro {
 .content-container .content button a {
     color: white;
     font-size: 1.5rem;
+    background-color: transparent;
 }
 
 .content-container .content button:hover {
@@ -261,9 +265,12 @@ section#intro {
 }
 
 .content-container .content a {
-    color: black; 
+    color: #fff; 
     letter-spacing: 3px;
-    font-size: 13px;
+    font-size: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+
 }
 .content-container .content a:hover {
     font-weight: bold;
