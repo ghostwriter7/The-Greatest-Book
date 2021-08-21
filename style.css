@@ -4,10 +4,22 @@
     --primary: #DB2955;
     --secondary: #54494B;
     --optional: #B98389;
+    /* --primary: #8BAAAD;
+    --optional: #F4FFF8;
+    --secondary: #4D4847; */
+    /* --secondary: #668F80;
+    --optional: #CF8E80;
+    --primary: #916953; */
 }
 
+
+/* #region GENERAL */
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -17,11 +29,8 @@ body {
     align-items: center;
     flex-direction: column;
     overflow-x: hidden;
-    min-height: 100vh;
-    width: 100vw;
     margin: 0;
 }
-
 
 nav {
     display: flex;
@@ -38,9 +47,22 @@ nav {
     box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
 
+button:focus {
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+button:hover {
+    opacity: 0.9;
+}
+
 a {text-decoration: none;}
+
 li {list-style-type: none;}
-/* THE WHOLE NAVIGATION */
+/* #endregion */
+/* #region NAVIGATION CONTAINER - DESKTOP */
 .navBox {
     display: flex;
     justify-content: space-between;
@@ -49,32 +71,34 @@ li {list-style-type: none;}
     width: 100%;
     margin: 0 20px;
 }
-
-/* ANIMATION WHEN USER SCROLLS DOWN */
+/* #endregion */
+/* #region ANIMATION WHEN USER SCROLLS DOWN */
 nav.scrollDown {
     height: 60px;
 }
-/* CONTAINER FOR ICON & TITLE */
+/* #endregion*/
+/* #region CONTAINER FOR ICON & TITLE */
 .navLogo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
-/* ICON NEXT TO TITLE */
+/* #endregion */
+/* #region ICON NEXT TO TITLE */
 .navIcon {
     color: var(--secondary);
     font-size: 40px;
     margin: 5px;
     text-shadow: 2px 3px 3px rgba(0,0,0,0.1);
 }
-/* THE BOOK'S TITLE */
+/* #endregion */
+/* #region THE BOOK'S TITLE */
 .navHeader {
     font-size: 30px;
     white-space: nowrap;
 }
 .navHeader a {
     color: #fff;
-    text-decoration: none;
     text-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
 .navHeader a:hover {
@@ -82,21 +106,19 @@ nav.scrollDown {
     font-weight: bold;
     color: #fff;
 }
-
-/* CONTAINER FOR ALL MENU ITEMS */
+/* #endregion */
+/* #region CONTAINER FOR ALL MENU ITEMS */
 .navItems ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-
-/* SINGLE ITEM IN NAVIGATION */
+/* #endregion */
+/* #region SINGLE ITEM IN NAVIGATION */
 .navItem {
-    list-style-type: none;
     padding: 10px 20px;
 }
 .navItem a {
-    text-decoration: none;
     color: var(--secondary);
     font-size: 20px;
     display: inline-block;
@@ -109,8 +131,8 @@ nav.scrollDown {
     background-color: #fff;
     border-radius: 10px;   
 }
-
-/* CLASS FOR A BUTTON */
+/* #endregion */
+/* #region BUTTON BUY NOW IN NAV */
 .btn {
     border: 0;
     padding: 10px 20px;
@@ -122,23 +144,18 @@ nav.scrollDown {
     color: var(--primary);
     font-weight: bold;
 }
-.btn:focus {
-    outline: none;
-}
+
 .btn:hover {
     background-color: var(--secondary);
 }
 .btn:hover a{
     color: #fff;
 }
-.btn:active {
-    transform: scale(0.95);
-}
 
+/* #endregion */
+/* #region INTRO SECTION - GENERAL INFO ABOUT THE BOOK */
 
-/* INTRO SECTION - GENERAL INFO ABOUT THE BOOK */
-
-section {
+section#intro {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -153,7 +170,6 @@ section {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-
 }
 
 /* LEFT SIDE OF INTRO WITH TEXT */
@@ -262,8 +278,8 @@ section {
     border-radius: 25px;
     box-shadow: 3px 3px 4px rgba(0,0,0,0.3);
 }
-
-/* TOOLTIPS */
+/* #endregion */
+/* #region TOOLTIPS */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -300,8 +316,9 @@ section {
     visibility: visible;
     opacity: 1;
 }
+/* #endregion */
+/* #region SIDEBAR WITH ALL AMAZING BOOKS */
 
-/* SIDEBAR WITH ALL AMAZING BOOKS */
 
 .sideBarBox {
     position: absolute;
@@ -405,7 +422,167 @@ section {
 .thirdBox a:hover {
     font-weight: bold;
 }
+/* #endregion */
+/* #region PRICING SECTION */
 
+section#buy {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--optional);
+    position: relative;
+}
+.introBox {
+    margin: 30px 0;
+    text-align: center;
+}
+.introBox h1 {
+    display: block;
+    background-color: var(--primary);
+    color: #fff;
+    margin: 0 auto;
+    padding: 20px 40px;
+    border-radius: 30px;
+    letter-spacing: 3px;
+    font-size: 2rem;
+    white-space: nowrap;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+    text-shadow: 2px 3px 3px rgba(0,0,0,0.1);
+}
+.introBox h2 {
+    color: #fff;
+}
+.pricingContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 10px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 75px 50px;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+}
+.option {
+    width: 30%;
+    background-color: var(--secondary);
+    border-radius: 25px;
+    color: #fff;
+    padding: 15px 15px 30px 15px;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.option .price {
+    font-size: 2rem; 
+    font-weight: bold;
+    color: var(--optional);
+}
+.option h1 {
+    background-color: var(--optional);
+    padding: 20px 0;
+    border-radius: 15px;
+}
+.option.best h1 {
+    background-color: var(--secondary);
+    font-size: 1.9rem;
+    margin-top: 0;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.option.best .price {
+    color: var(--secondary);
+    font-size: 2.5rem;
+}
+
+.option.best {
+    background-color: var(--optional);
+    border: 1px solid var(--secondary);
+}
+.highlight {
+    color: var(--secondary);
+    background-color: #fff;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 20px 0;
+}
+
+.option .buyBtn {
+    background-color: transparent;
+    border: 0;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 5px 20px;
+    box-shadow: 2px 3px 2px rgba(0,0,0,0.3);
+}
+
+.option .buyBtn:hover {
+    background-color: #fff;
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+/* #endregion */
+/* #region MODAL INFO */
+.disableScroll {
+    height: 100%;
+    overflow: hidden;
+}
+
+.modalInfo {
+    position: absolute;
+    display: none;
+    z-index: 30;
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+}
+.modalInfo.active  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalBox {
+    width: 50%;
+    background-color: #fff;
+    padding: 60px 60px;
+    border-radius: 40px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+    position: relative;
+}
+.modalContent h1 {
+    font-size: 45px;
+    color: var(--primary);
+}
+.information {
+    font-size: 30px;
+    text-align: center;
+}
+
+button.closeModal {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 40px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--primary);
+}
+/* #endregion */
+/* #region MEDIA */
 @media (max-width: 1150px) {
     /* SWITCH OFF TRADITIONAL NAV */
     .navBox {
@@ -530,6 +707,31 @@ section {
     .thirdBox {
         width: 76vw;
     }
+    .pricingContent {
+        flex-direction: column;
+        width: 80%;
+        padding: 20px 0;
+    }
+    .option {
+        width: 90%;
+        margin: 20px 0;
+    }
+    .modalInfo.active {
+        display: flex;
+    }
+    .modalBox {
+       width: 80%;
+       padding: 15px 5px;
+    }
+    .modalBox .modalContent h1 {
+        font-size: 25px;
+        text-align: center;
+        margin-top: 75px;
+    }
+    .modalBox .information {
+        font-size: 20px;
+        padding: 20px;
+    }
 }
 
 
@@ -538,3 +740,5 @@ section {
         display: none;
     }
 }
+
+/* #endregion */

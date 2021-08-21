@@ -26,7 +26,39 @@ const sideBar = document.querySelector('.sideBarBox')
 
 linkOpen.addEventListener('click', () => {
     sideBar.classList.add('active');
+    sideBar.scrollIntoView({ behavior: "smooth" })
 })
 closeSideBar.addEventListener('click', () => {
     sideBar.classList.remove('active');
 })
+
+//MODAL INFO 
+const messages = ["The Greatest Book in the ebook format is currently out of stock! We're waiting for a delivery.", "Are you sure you want to buy this book? It may significiantly change your life. Sleep it over. Come back tomorrow, please.", "The author is waiting for ink delivery, we're sorry!"]
+const buyBtns = document.querySelectorAll('.buyBtn');
+const modal = document.getElementById('modal');
+const closeModalBtn = document.getElementById('closeModal');
+const information = document.getElementById('messageToUser');
+const modalBoxMobile = document.getElementById('modalMobile');
+buyBtns.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        disableScroll();
+        information.innerHTML = `${messages[idx]}`;
+        modal.classList.add('active');
+        if (window.innerWidth < 1150) {
+            modalBoxMobile.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" })
+        }
+    })
+})
+closeModalBtn.addEventListener('click', () => {
+    modal.classList.remove('active');
+    enableScroll();
+})
+
+
+function disableScroll() {
+    document.body.classList.add('disableScroll');
+}
+
+function enableScroll() {
+    document.body.classList.remove('disableScroll');
+}
